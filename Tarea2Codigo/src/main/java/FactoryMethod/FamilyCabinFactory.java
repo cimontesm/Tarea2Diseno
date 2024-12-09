@@ -10,6 +10,7 @@ package FactoryMethod;
  */
 public class FamilyCabinFactory implements CabinFactory {
 
+    //creacion de la cabina segun el tipo
     @Override
     public Cabin createCabin() {
         return new FamilyCabin();

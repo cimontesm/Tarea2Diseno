@@ -12,6 +12,7 @@ import FactoryMethod.Cabin;
  */
 public class AvailableState implements CabinState {
 
+    //estado de la cabina
     @Override
     public void cabinState(Cabin cabin) {
         cabin.setState("Disponible");

@@ -12,5 +12,6 @@ import FactoryMethod.Cabin;
  */
 public interface CabinState {
 
+    //estado de la cabina
     public void cabinState(Cabin cabin);
 }

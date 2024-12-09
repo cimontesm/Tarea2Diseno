@@ -12,11 +12,13 @@ public abstract class IncidentHandler implements Handler {
 
     protected Handler nextHandler;
 
+    //metodo para ir al siguente problema despues de resolver uno
     @Override
     public void setNext(Handler nexthandler) {
         this.nextHandler = nextHandler;
     }
 
+    //aqui se maneja el incidente
     @Override
     public void handle(Incident incident) {
         //todo

@@ -10,6 +10,7 @@ package FactoryMethod;
  */
 public class InteriorCabin extends Cabin {
 
+    //tipo de la cabina
     @Override
     public void setType(String type) {
         this.type = "Interior";

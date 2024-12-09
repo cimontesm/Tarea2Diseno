@@ -13,6 +13,7 @@ public class User {
     public String name;
     public String email;
 
+    //aqui el usuario es actualizado sobre la notificacion
     public void update(String notification) {
         System.out.println("Notificación para " + name + ": " + notification);
     }

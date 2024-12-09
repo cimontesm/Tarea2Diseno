@@ -9,7 +9,7 @@ package ChainOfResponsibility;
  * @author CMONTES
  */
 public class Client {
-
+    /*En este metodo el cliente puede crear un incidente que halla encontrado para que se resuelva*/
     public Incident createIncident(String despriction, String level) {
         Incident i = new Incident();
         return i;

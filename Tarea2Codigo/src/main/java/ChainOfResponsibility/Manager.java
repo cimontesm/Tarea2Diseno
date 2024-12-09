@@ -10,6 +10,7 @@ package ChainOfResponsibility;
  */
 public class Manager extends IncidentHandler {
 
+    //el manager puede resolver un incidente
     @Override
     public void handle(Incident incident) {
         //todo

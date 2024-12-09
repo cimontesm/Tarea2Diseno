@@ -10,5 +10,6 @@ package FactoryMethod;
  */
 public interface CabinFactory {
 
+    //creacion de la cabina segun el tipo
     public Cabin createCabin();
 }

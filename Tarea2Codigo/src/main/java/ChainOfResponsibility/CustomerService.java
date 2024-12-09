@@ -10,6 +10,7 @@ package ChainOfResponsibility;
  */
 public class CustomerService extends IncidentHandler {
 
+    //el servicio al cliente puede resolver el incidente 
     @Override
     public void handle(Incident incident) {
         //todo

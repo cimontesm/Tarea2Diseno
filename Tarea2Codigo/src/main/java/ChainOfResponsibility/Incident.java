@@ -13,10 +13,11 @@ public class Incident {
     public String description;
     public String level;
 
+    //este es el metodo donde se maneja el incidente
     public void handle(Incident incident) {
 
     }
-
+    
     public String getDescription() {
         return description;
     }
