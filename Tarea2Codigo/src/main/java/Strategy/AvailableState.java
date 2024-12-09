@@ -4,10 +4,16 @@
  */
 package Strategy;
 
+import FactoryMethod.Cabin;
+
 /**
  *
  * @author Home
  */
-public class AvailableState {
-    
+public class AvailableState implements CabinState {
+
+    @Override
+    public void cabinState(Cabin cabin) {
+        cabin.setState("Disponible");
+    }
 }
