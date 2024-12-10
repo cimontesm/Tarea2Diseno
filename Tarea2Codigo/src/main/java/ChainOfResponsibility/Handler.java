@@ -4,13 +4,7 @@
  */
 package ChainOfResponsibility;
 
-/**
- *
- * @author CMONTES
- */
 public interface Handler {
-
-    public void setNext(Handler handler);
-
-    public void handle(Incident incident);
+    void setNext(Handler handler);
+    void handle(Incident incident);
 }

@@ -4,15 +4,14 @@
  */
 package ChainOfResponsibility;
 
-/**
- *
- * @author CMONTES
- */
 public class Manager extends IncidentHandler {
 
-    //el manager puede resolver un incidente
     @Override
     public void handle(Incident incident) {
-        //todo
+        if (incident.getLevel().equalsIgnoreCase("high")) {
+            System.out.println("Manager resolved the incident: " + incident.getDescription());
+        } else {
+            System.out.println("Manager cannot handle the incident: " + incident.getDescription());
+        }
     }
 }

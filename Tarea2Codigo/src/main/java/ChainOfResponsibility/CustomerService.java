@@ -4,15 +4,15 @@
  */
 package ChainOfResponsibility;
 
-/**
- *
- * @author CMONTES
- */
 public class CustomerService extends IncidentHandler {
 
-    //el servicio al cliente puede resolver el incidente 
     @Override
     public void handle(Incident incident) {
-        //todo
+        if (incident.getLevel().equalsIgnoreCase("low")) {
+            System.out.println("Customer Service resolved the incident: " + incident.getDescription());
+        } else {
+            System.out.println("Customer Service escalates the incident: " + incident.getDescription());
+            super.handle(incident);
+        }
     }
 }

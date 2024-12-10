@@ -4,14 +4,26 @@
  */
 package ChainOfResponsibility;
 
-/**
- *
- * @author CMONTES
- */
 public class Client {
-    /*En este metodo el cliente puede crear un incidente que halla encontrado para que se resuelva*/
-    public Incident createIncident(String despriction, String level) {
-        Incident i = new Incident();
-        return i;
+
+    public static void main(String[] args) {
+        
+        CustomerService customerService = new CustomerService();
+        Manager manager = new Manager();
+
+        
+        customerService.setNext(manager);
+
+        
+        Incident lowLevelIncident = new Incident("User can't login", "low");
+        Incident highLevelIncident = new Incident("Database outage", "high");
+
+        
+        System.out.println("Handling low-level incident:");
+        customerService.handle(lowLevelIncident);
+
+        System.out.println("\nHandling high-level incident:");
+        customerService.handle(highLevelIncident);
     }
 }
+

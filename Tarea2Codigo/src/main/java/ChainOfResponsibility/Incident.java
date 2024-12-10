@@ -4,22 +4,21 @@
  */
 package ChainOfResponsibility;
 
-/**
- *
- * @author CMONTES
- */
 public class Incident {
+    private String description;
+    private String level;
 
-    public String description;
-    public String level;
-
-    //este es el metodo donde se maneja el incidente
-    public void handle(Incident incident) {
-
+    public Incident(String description, String level) {
+        this.description = description;
+        this.level = level;
     }
-    
+
     public String getDescription() {
         return description;
     }
 
+    public String getLevel() {
+        return level;
+    }
 }
+
