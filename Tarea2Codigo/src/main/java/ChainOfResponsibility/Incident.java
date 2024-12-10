@@ -5,6 +5,7 @@
 package ChainOfResponsibility;
 
 public class Incident {
+
     private String description;
     private String level;
 
@@ -21,4 +22,3 @@ public class Incident {
         return level;
     }
 }
-

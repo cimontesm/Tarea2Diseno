@@ -5,6 +5,7 @@
 package ChainOfResponsibility;
 
 public abstract class IncidentHandler implements Handler {
+
     protected Handler nextHandler;
 
     @Override

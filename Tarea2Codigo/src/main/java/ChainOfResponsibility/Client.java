@@ -7,18 +7,15 @@ package ChainOfResponsibility;
 public class Client {
 
     public static void main(String[] args) {
-        
+
         CustomerService customerService = new CustomerService();
         Manager manager = new Manager();
 
-        
         customerService.setNext(manager);
 
-        
         Incident lowLevelIncident = new Incident("User can't login", "low");
         Incident highLevelIncident = new Incident("Database outage", "high");
 
-        
         System.out.println("Handling low-level incident:");
         customerService.handle(lowLevelIncident);
 
@@ -26,4 +23,3 @@ public class Client {
         customerService.handle(highLevelIncident);
     }
 }
-
