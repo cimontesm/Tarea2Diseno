@@ -8,9 +8,8 @@ package deber.codigo;
  *
  * @author CMONTES
  */
-public class CabinState {
+enum CabinState {
 
-    public enum State {
-        AVAILABLE, MAINTENANCE, OCUPPIED, RESERVED
-    }
+    AVAILABLE, MAINTENANCE, OCUPPIED, RESERVED
+
 }

@@ -2,10 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Observer;
+package deber.codigo;
 
-import FactoryMethod.Cabin;
-import deber.codigo.CabinState;
+import deber.codigo.Cabin;
 import java.util.Date;
 
 /**
@@ -14,24 +13,36 @@ import java.util.Date;
  */
 public class Reserva {
 
-    private String idReserva;
+    private int idReserva;
+    private Cabin cabin;
     private String estado;
     private Date fechaReserva;
     private NotificationCenter notificationCenter;
-    private Cabin cabin;
+    private double costo;
 
-    public Reserva(String idReserva, String estado, Date fechaReserva, NotificationCenter notificationCenter, Cabin cabin) {
+    public Reserva(int idReserva, Cabin cabin, String estado, Date fechaReserva, NotificationCenter notificationCenter, double costo) {
         this.idReserva = idReserva;
+        this.cabin = cabin;
         this.estado = estado;
         this.fechaReserva = fechaReserva;
         this.notificationCenter = notificationCenter;
-        this.cabin = cabin;
+        this.costo = costo;
     }
 
     public boolean crearReserva() {
         this.estado = "Confirmada";
         notificationCenter.notifySubscriber("La reserva " + idReserva + " ha sido creada.");
         return true;
+    }
+
+    public boolean confirmarReserva() {
+        if (cabin.getState() == CabinState.AVAILABLE) {
+            cabin.setState(CabinState.RESERVED);
+            notificationCenter.notifySubscriber("Su reserva ha sido confirmada para la cabina " + cabin.getType());
+            return true;
+        }
+        System.out.println("No se puede reservar la cabina seleccionada.");
+        return false;
     }
 
     public boolean modificarReserva(Date nuevaFecha) {
@@ -42,7 +53,7 @@ public class Reserva {
 
     public boolean cancelarReserva() {
         this.estado = "Cancelada";
-        this.cabin.setState("Disponible"); // La cabina vuelve a estar disponible
+        cabin.setState(CabinState.AVAILABLE); // La cabina vuelve a estar disponible
         notificationCenter.notifySubscriber("La reserva " + idReserva + " ha sido cancelada.");
         return true;
     }

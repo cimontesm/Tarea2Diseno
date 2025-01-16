@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package FactoryMethod;
+package deber.codigo;
 
 /**
  *
@@ -10,8 +10,8 @@ package FactoryMethod;
  */
 public abstract class Cabin {
 
-    String type;
-    String state;
+    protected String type;
+    protected CabinState state;
 
     public String getType() {
         return type;
@@ -21,11 +21,11 @@ public abstract class Cabin {
         this.type = type;
     }
 
-    public String getState() {
+    public CabinState getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(CabinState state) {
         this.state = state;
     }
 

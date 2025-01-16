@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package FactoryMethod;
+package deber.codigo;
 
 /**
  *
  * @author CMONTES
  */
-public class BalconyCabinFactory implements CabinFactory {
+public class InteriorCabin extends Cabin {
 
-    //creacion de la cabina segun el tipo
+    //tipo de la cabina
     @Override
-    public Cabin createCabin() {
-        return new BalconyCabin();
+    public void setType(String type) {
+        this.type = "Interior";
     }
 
 }

@@ -2,27 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Decorator;
+package deber.codigo;
 
 /**
  *
  * @author CMONTES
  */
-public class AdditionalServiceDecorator implements BookingService {
+public class SpaService extends AdditionalServiceDecorator {
 
-    protected BookingService bookingService;
-
-    public AdditionalServiceDecorator(BookingService bookingService) {
-        this.bookingService = bookingService;
+    public SpaService(BookingService service) {
+        super(service);
     }
 
     @Override
     public double calculateCost() {
-        return bookingService.calculateCost();
+        return super.calculateCost() + 50.0;
     }
 
     @Override
     public String getDescription() {
-        return bookingService.getDescription();
+        return super.getDescription() + " + Spa Service";
     }
 }

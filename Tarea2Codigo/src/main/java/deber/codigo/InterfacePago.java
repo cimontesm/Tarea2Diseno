@@ -14,5 +14,4 @@ public interface InterfacePago {
 
     public boolean cancelarPago();
 
-    public boolean confirmarPago();
 }
