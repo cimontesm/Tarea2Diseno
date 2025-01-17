@@ -91,6 +91,6 @@ public class Tarea2Codigo {
             customerService.handle(incident);
         }
         
-        System.out.println("Adios...");
+        System.out.println("Adios");
     }
 }
