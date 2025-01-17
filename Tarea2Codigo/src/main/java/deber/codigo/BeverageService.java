@@ -14,10 +14,12 @@ public class BeverageService extends AdditionalServiceDecorator {
         super(service);
     }
 
+    @Override
     public double calculateCost() {
         return super.calculateCost() + 20.0;
     }
 
+    @Override
     public String getDescription() {
         return super.getDescription() + " + Beverage Service";
     }

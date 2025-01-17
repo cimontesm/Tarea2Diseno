@@ -17,7 +17,9 @@ public class Itinerary {
     private List<Date> dates;
     private List<String> destiny;
 
-    public boolean modifyItinerary() {
+    public boolean modifyItinerary(List<Date> newDates, List<String> newDestiny) {
+        this.dates = newDates;
+        this.destiny = newDestiny;
         return true;
     }
 
