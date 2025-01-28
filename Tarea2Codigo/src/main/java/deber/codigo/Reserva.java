@@ -36,12 +36,10 @@ public class Reserva {
     }
 
     public boolean confirmarReserva() {
-        if (cabin.getState() == CabinState.AVAILABLE) {
-            cabin.setState(CabinState.RESERVED);
-            notificationCenter.notifySubscriber("Su reserva ha sido confirmada para la cabina " + cabin.getType());
+        if (cabin.reservar()) {
+            notificationCenter.notifySubscriber("Su reserva ha sido confirmada");
             return true;
         }
-        System.out.println("No se puede reservar la cabina seleccionada.");
         return false;
     }
 
