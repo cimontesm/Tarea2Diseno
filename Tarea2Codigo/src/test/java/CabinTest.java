@@ -32,7 +32,7 @@ public class CabinTest {
 
     @Test
     void testSetState() {
-        cabin.setState(RESERVED);
+        cabin.reservar();
         assertEquals(RESERVED, cabin.getState());
     }
 }

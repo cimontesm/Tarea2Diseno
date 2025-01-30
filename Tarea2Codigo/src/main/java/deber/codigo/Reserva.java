@@ -5,6 +5,7 @@
 package deber.codigo;
 
 import deber.codigo.Cabin;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -16,7 +17,7 @@ public class Reserva {
     private int idReserva;
     private Cabin cabin;
     private String estado;
-    private Date fechaReserva;
+    private Date fechaReserva = java.sql.Date.valueOf(LocalDate.now());
     private NotificationCenter notificationCenter;
     private double costo;
 
