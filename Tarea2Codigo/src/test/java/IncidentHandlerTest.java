@@ -28,9 +28,7 @@ public class IncidentHandlerTest {
     void setUp() {
         manager = new Manager();
         customerService = new CustomerService();
-        customerService.setNext(manager); // Configuración de la cadena de responsabilidad
-        
-        // Redirigir salida para verificar prints
+        customerService.setNext(manager);
         outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
     }
@@ -39,7 +37,6 @@ public class IncidentHandlerTest {
     void testCustomerServiceHandlesLowIncident() {
         Incident lowIncident = new Incident("Login issue", "low");
         customerService.handle(lowIncident);
-        
         String output = outputStream.toString().trim();
         assertTrue(output.contains("Customer Service handling incident: Login issue"));
     }
@@ -47,8 +44,7 @@ public class IncidentHandlerTest {
     @Test
     void testManagerHandlesHighIncident() {
         Incident highIncident = new Incident("Server down", "high");
-        customerService.handle(highIncident); // Pasará al Manager por la cadena de responsabilidad
-        
+        customerService.handle(highIncident);
         String output = outputStream.toString().trim();
         assertTrue(output.contains("Manager handling incident: Server down"));
     }
@@ -56,8 +52,7 @@ public class IncidentHandlerTest {
     @Test
     void testNoHandlerForUnknownLevel() {
         Incident unknownIncident = new Incident("Strange error", "medium");
-        customerService.handle(unknownIncident); // No debería haber salida
-        
+        customerService.handle(unknownIncident);
         String output = outputStream.toString().trim();
         assertEquals("", output);
     }

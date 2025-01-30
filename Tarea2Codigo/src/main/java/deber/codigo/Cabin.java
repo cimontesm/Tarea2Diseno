@@ -26,7 +26,11 @@ public abstract class Cabin {
     }
 
     public void setState(CabinState state) {
-        this.state = state;
+        setState(state);
+    }
+
+    public void setState(CabinState state) {
+        setState(state);
     }
 
 }
