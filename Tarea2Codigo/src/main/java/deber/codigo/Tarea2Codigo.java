@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 package deber.codigo;
-import java.time.LocalDate;
+import java.time.*;
 import java.util.Scanner;
 
 /**
  *
  * @author CMONTES
  */
+public class Tarea2Codigo {
 
- public class Tarea2Codigo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+
         User user = crearUsuario();
         if (!autenticarUsuario(scanner, user)) {
             return;
@@ -24,7 +24,7 @@ import java.util.Scanner;
             System.out.println("Opción inválida.");
             return;
         }
-        
+
         BookingService booking = seleccionarServiciosAdicionales(scanner);
         double totalCost = booking.calculateCost();
 
@@ -55,16 +55,18 @@ import java.util.Scanner;
         System.out.println("Seleccione tipo de cabina: 1) Suite  2) Balcón  3) Interior  4) Familiar");
         int choice = scanner.nextInt();
 
-        CabinFactory factory = null;
-        if (choice == 1) {
-            factory = new SuiteFactory();
-        } else if (choice == 2) {
-            factory = new BalconyCabinFactory();
-        } else if (choice == 3) {
-            factory = new InteriorCabinFactory();
-        } else if (choice == 4) {
-            factory = new FamilyCabinFactory();
-        }
+        CabinFactory factory = switch (choice) {
+            case 1 ->
+                new SuiteFactory();
+            case 2 ->
+                new BalconyCabinFactory();
+            case 3 ->
+                new InteriorCabinFactory();
+            case 4 ->
+                new FamilyCabinFactory();
+            default ->
+                null;
+        };
 
         if (factory != null) {
             Cabin cabin = factory.createCabin();
@@ -79,14 +81,16 @@ import java.util.Scanner;
         System.out.println("¿Desea agregar servicios adicionales? 1) Bebidas 2) Servicio en Habitación 3) Spa 4) Ninguno");
         int extraService = scanner.nextInt();
 
-        if (extraService == 1) {
-            booking = new BeverageService(booking);
-        } else if (extraService == 2) {
-            booking = new InRoomService(booking);
-        } else if (extraService == 3) {
-            booking = new SpaService(booking);
-        }
-        return booking;
+        return switch (extraService) {
+            case 1 ->
+                new BeverageService(booking);
+            case 2 ->
+                new InRoomService(booking);
+            case 3 ->
+                new SpaService(booking);
+            default ->
+                booking;
+        };
     }
 
     private static boolean procesarReserva(Cabin cabin, double totalCost) {
@@ -104,7 +108,7 @@ import java.util.Scanner;
     private static void manejarIncidentes(Scanner scanner) {
         System.out.println("¿Desea reportar un incidente? 1) Sí  2) No");
         int incidentChoice = scanner.nextInt();
-        scanner.nextLine(); 
+        scanner.nextLine();
 
         if (incidentChoice == 1) {
             System.out.print("Ingrese la descripción del incidente: ");
