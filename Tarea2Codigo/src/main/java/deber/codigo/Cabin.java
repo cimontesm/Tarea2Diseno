@@ -28,9 +28,7 @@ public abstract class Cabin {
     public void setState(CabinState state) {
         setState(state);
     }
-
-    public void setState(CabinState state) {
-        setState(state);
+    public boolean reservar(){
+        return true;
     }
-
 }
