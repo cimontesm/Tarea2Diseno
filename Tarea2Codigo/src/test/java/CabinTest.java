@@ -1,5 +1,7 @@
 
-import static deber.codigo.CabinState.RESERVED;
+
+import deber.codigo.BalconyCabin;
+import deber.codigo.Cabin;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,7 +29,7 @@ public class CabinTest {
     @Test
     void testSetState() {
         cabin.reservar();
-        assertEquals(RESERVED, cabin.getState());
+        assertEquals("RESERVED", cabin.getState());
     }
 
 }
