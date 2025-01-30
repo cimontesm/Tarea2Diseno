@@ -34,4 +34,8 @@ public class Pago implements InterfacePago {
         return true;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
 }
