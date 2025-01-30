@@ -28,7 +28,11 @@ public abstract class Cabin {
     public void setState(CabinState state) {
         setState(state);
     }
-    public boolean reservar(){
-        return true;
+    public boolean reservar() {
+    if (this.state == CabinState.AVAILABLE){
+            this.state=CabinState.RESERVED;
+    return true;}
+    return false;
     }
+
 }
