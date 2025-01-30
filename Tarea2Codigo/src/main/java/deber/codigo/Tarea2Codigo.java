@@ -91,7 +91,7 @@ import java.util.Scanner;
 
     private static boolean procesarReserva(Cabin cabin, double totalCost) {
         NotificationCenter notificationCenter = new NotificationCenter();
-        Reserva reserva = new Reserva(1, cabin, LocalDate.now(), "Pendiente", totalCost, notificationCenter);
+        Reserva reserva = new Reserva(1, cabin, "Pendiente", LocalDate.now(), notificationCenter, totalCost);
         return reserva.confirmarReserva();
     }
 
