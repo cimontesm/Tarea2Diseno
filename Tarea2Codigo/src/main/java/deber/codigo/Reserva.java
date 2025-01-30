@@ -5,8 +5,9 @@
 package deber.codigo;
 
 import deber.codigo.Cabin;
-import java.time.LocalDate;
-import java.util.Date;
+
+import java.time.*;
+
 
 /**
  *
@@ -17,11 +18,11 @@ public class Reserva {
     private int idReserva;
     private Cabin cabin;
     private String estado;
-    private Date fechaReserva = java.sql.Date.valueOf(LocalDate.now());
+    private LocalDate fechaReserva;
     private NotificationCenter notificationCenter;
     private double costo;
 
-    public Reserva(int idReserva, Cabin cabin, String estado, Date fechaReserva, NotificationCenter notificationCenter, double costo) {
+    public Reserva(int idReserva, Cabin cabin, String estado, LocalDate fechaReserva, NotificationCenter notificationCenter, double costo) {
         this.idReserva = idReserva;
         this.cabin = cabin;
         this.estado = estado;
@@ -44,7 +45,7 @@ public class Reserva {
         return false;
     }
 
-    public boolean modificarReserva(Date nuevaFecha) {
+    public boolean modificarReserva(LocalDate nuevaFecha) {
         this.fechaReserva = nuevaFecha;
         notificationCenter.notifySubscriber("La reserva " + idReserva + " ha sido modificada a la fecha " + nuevaFecha + ".");
         return true;
